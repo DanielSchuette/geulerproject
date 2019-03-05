@@ -4,6 +4,4 @@
 
 ## Overview
 
-The main repository is located at [github.com/PhilippSchuette/projecteuler](https://github.com/PhilippSchuette/projecteuler).
-
-## Building and Running Problem Solutions
+The main repository is located at [github.com/PhilippSchuette/projecteuler](https://github.com/PhilippSchuette/projecteuler). Instructions for building and running solutions can be found there.
