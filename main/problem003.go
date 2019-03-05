@@ -6,23 +6,14 @@ package main
 import (
 	"fmt"
 	"log"
-	"os"
-	"strconv"
 	"time"
 
 	"github.com/DanielSchuette/goeulerproject"
 )
 
 func main() {
-	if len(os.Args) != 2 {
-		log.Fatal("provide the number for which to find the largest prime factor as an argument")
-	}
-	input, err := strconv.Atoi(os.Args[1])
-	if err != nil {
-		log.Fatal(err)
-	}
 	start := time.Now()
-	res, err := goeulerproject.LargestPrimeFactor(input) // 600851475143
+	res, err := goeulerproject.LargestPrimeFactor(600851475143)
 	if err != nil {
 		log.Fatal(err)
 	}
