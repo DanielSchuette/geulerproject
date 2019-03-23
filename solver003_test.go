@@ -2,6 +2,7 @@ package goeulerproject
 
 import (
 	"errors"
+	"fmt"
 	"testing"
 )
 
@@ -37,13 +38,13 @@ func TestLargestPrimeFactor(t *testing.T) {
 		{
 			in:   -1,
 			want: 0,
-			err:  errors.New("invalid input: -1 is less than 1"),
+			err:  errors.New("cannot determine primality of -1: invalid input: -1 is less than 1"),
 		},
 		// test edge cases
 		{
 			in:   1,
-			want: 1,
-			err:  nil,
+			want: 0,
+			err:  errors.New("cannot find a prime factor"),
 		},
 		{
 			in:   2,
@@ -55,6 +56,12 @@ func TestLargestPrimeFactor(t *testing.T) {
 			in:   11,
 			want: 11,
 			err:  nil,
+		},
+		// test 0 as input
+		{
+			in:   0,
+			want: 0,
+			err:  errors.New("cannot determine primality of 0: invalid input: 0 is less than 1"),
 		},
 	}
 
@@ -76,6 +83,9 @@ func TestLargestPrimeFactor(t *testing.T) {
 
 		// if error is returned, test if an error is expected
 		if err != nil {
+			if c.err == nil {
+				panic(fmt.Sprintf("test case error is nil, should be %v for %v\n", err.Error(), c.in))
+			}
 			if err.Error() != c.err.Error() {
 				t.Errorf("LargestPrimeFactor(%d) returned error %v, want %v\n",
 					c.in, err, c.err)

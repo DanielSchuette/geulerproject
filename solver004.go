@@ -2,7 +2,6 @@ package goeulerproject
 
 import (
 	"fmt"
-	"log"
 	"strconv"
 )
 
@@ -30,24 +29,17 @@ func FindPalindrome(n int) (int, error) {
 		}
 		low = low + "0"
 	}
-	highInt, err := strconv.Atoi(high)
-	if err != nil {
-		log.Fatalf("cannot convert ascii to int %s: %v\n", high, err)
-	}
-	lowInt, err := strconv.Atoi(low)
-	if err != nil {
-		log.Fatalf("cannot convert ascii to int %s: %v\n", low, err)
-	}
+
+	// input is never malformed so errors are ignored
+	highInt, _ := strconv.Atoi(high)
+	lowInt, _ := strconv.Atoi(low)
 
 	// loop over all possible integers and
 	// test if their product is a palindrome
 	var pal int
 	for x := highInt; x >= lowInt; x-- {
 		for y := highInt; y >= lowInt; y-- {
-			ok, err := IsPalindrome(x * y)
-			if err != nil {
-				fmt.Printf("cannot check potential palindrome %d: %v\n", pal, err)
-			}
+			ok, _ := IsPalindrome(x * y) /* ignore any errors */
 			if ok && (x*y) > pal {
 				pal = x * y
 			}

@@ -20,7 +20,7 @@ import (
 func main() {
 	// run slow solution
 	start := time.Now()
-	res1, err := goeulerproject.SumOfSquares(1000000000)
+	res1, err := goeulerproject.SumOfSquares(10000)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -43,6 +43,6 @@ func main() {
 		log.Fatal(err)
 	}
 	elapsed = time.Since(start)
-	fmt.Printf("result: %v, time elapsed (fast solution): %s\n",
+	fmt.Printf("result: %v, elapsed (fast solution): %s\n",
 		res4-res3, elapsed)
 }

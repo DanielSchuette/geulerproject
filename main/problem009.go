@@ -21,7 +21,7 @@ func main() {
 		log.Fatal(err)
 	}
 	elapsed := time.Since(start)
-	fmt.Printf("a: %v, b: %v, c: %v, sum: %v, product: %v\n",
+	fmt.Printf("a: %v, b: %v, c: %v, sum: %v, product: %v, ",
 		a, b, c, a+b+c, a*b*c)
 	fmt.Printf("elapsed: %s\n", elapsed)
 }
