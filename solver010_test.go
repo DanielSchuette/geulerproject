@@ -22,7 +22,7 @@ func TestSumOfPrimes(t *testing.T) {
 		// test valid example
 		{
 			in:   12,
-			want: 37,
+			want: 28,
 			err:  nil,
 		},
 	}
